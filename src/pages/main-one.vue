@@ -38,11 +38,11 @@ export default {
         return {
             barNav: [{
                 text: '设计原则',
-                src: '#/main-one',
+                src: '#/zh-CN/guide/design',
                 active: true
             }, {
                 text: '导航',
-                src: '#/main-one',
+                src: '#/zh-CN/guide/nav',
                 active: false
             }],
             msg: 'Welcome to zhanglu`s house',
@@ -87,7 +87,7 @@ export default {
     destroyed() {
         console.log('destroyed,组件被销毁之后');
     }
-}
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>

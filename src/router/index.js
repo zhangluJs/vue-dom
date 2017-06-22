@@ -1,7 +1,7 @@
 /**
  * @file 项目入口文件
  *
- * @author zhanglu(v_zhanglu03@baidu.com)
+ * @author zhanglu
  * 2015年10月27日
  */
 
@@ -32,6 +32,9 @@ export default new Router({
         children: [{
             path: '/zh-CN/guide/design',
             component: require('../pages/guide/design')
+        }, {
+            path: '/zh-CN/guide/nav',
+            component: require('../pages/guide/nav')
         }]
     }, {
         path: '/main-two',
