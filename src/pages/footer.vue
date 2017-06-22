@@ -23,8 +23,4 @@ export default {
   border-top: 1px solid #ccc;
   padding: 20px 0;
 }
-p {
-  line-height: 24px;
-  text-align: center;
-}
 </style>
