@@ -30,17 +30,17 @@ export default {
                 active: false,
                 src: '#/main-two/main-two-four'
             }]
-        }
+        };
     },
     methods: {
-    	navClickEvent:function (items, index) {
-    		items.forEach(function (el) {
-    			el.active = false;
-    		});
-    		this.items[index].active = true;
-    	}
+        navClickEvent(items, index) {
+            items.forEach(function (el) {
+                el.active = false;
+            });
+            this.items[index].active = true;
+        }
     }
-}
+};
 </script>
 <style>
 .activites {

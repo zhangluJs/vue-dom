@@ -6,19 +6,19 @@
 </template>
 <script>
 export default {
-	name: 'quibutton',
-	props: {
-		msg: {
-			default: '下载'
-		}
-	},
-	methods: {
-		btnClickEvent: function () {
+    name: 'quibutton',
+    props: {
+        msg: {
+            default: '下载'
+        }
+    },
+    methods: {
+        btnClickEvent() {
 			// 触发父组件中的事件（向父组件传递事件）
-			this.$emit('btnClickEvent');
-		}
-	}
-}
+            this.$emit('btnClickEvent');
+        }
+    }
+};
 </script>
 <style scoped>
 .qui-button {

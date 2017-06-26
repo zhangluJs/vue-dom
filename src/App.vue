@@ -10,12 +10,12 @@
 import iNav from './pages/nav.vue';
 import iFooter from './pages/footer.vue';
 export default {
-  name: 'app',
-  components: {
-    'i-nav': iNav,
-    'i-footer': iFooter
-  }
-}
+    name: 'app',
+    components: {
+        'i-nav': iNav,
+        'i-footer': iFooter
+    }
+};
 </script>
 
 <style>
