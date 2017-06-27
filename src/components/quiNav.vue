@@ -9,8 +9,12 @@
     </div>
 </template>
 <script>
+import {mapState} from 'vuex';
 export default {
     name: 'quiNav',
+    computed: mapState([
+        'count'
+    ]),
     data() {
         return {
             items: [{

@@ -8,16 +8,18 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-
+import store from './vuex';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 Vue.use(ElementUI);
-
 
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,
+    store,
     template: '<App/>',
     components: {App}
 });
+store.commit('increment');
+console.log(store.state.count);
