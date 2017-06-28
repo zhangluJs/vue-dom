@@ -37,15 +37,7 @@ export default {
             }, {
                 text: '资源',
                 active: false,
-                // src: '#/main-three'
-                src: '#/main-one'
-            }],
-            languagetab: [{
-                text: '中文',
-                active: true
-            }, {
-                text: 'En',
-                active: false
+                src: '#/main-three'
             }]
         };
     },

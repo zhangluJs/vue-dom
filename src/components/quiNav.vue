@@ -3,7 +3,7 @@
     	<a
     		v-for="(item, index) in items"
     		v-bind:class="[item.active ? 'activites' : '']"
-    		@click="navClickEvent(items, index)"
+    		@click="navClickEvent(index)"
     		:href="item.src"
     	>{{item.text}}</a>
     </div>
@@ -13,35 +13,15 @@ import {mapState} from 'vuex';
 export default {
     name: 'quiNav',
     computed: mapState([
-        'count'
+        'count',
+        'items'
     ]),
     data() {
-        return {
-            items: [{
-                text: '首页',
-                active: true,
-                src: '#/main-two'
-            }, {
-                text: '列表',
-                active: false,
-                src: '#/main-two/main-two-two'
-            }, {
-                text: '关于',
-                active: false,
-                src: '#/main-two/main-two-three'
-            }, {
-                text: '招聘',
-                active: false,
-                src: '#/main-two/main-two-four'
-            }]
-        };
+        return {};
     },
     methods: {
-        navClickEvent(items, index) {
-            items.forEach(function (el) {
-                el.active = false;
-            });
-            this.items[index].active = true;
+        navClickEvent(index) {
+            this.$store.commit('navClickEvent', index);
         }
     }
 };
@@ -54,7 +34,8 @@ export default {
 a {
 	width: 100px;
 	line-height: 30px;
-	float: left;
+	display: block;
 	text-decoration: none;
+    cursor: pointer;
 }
 </style>

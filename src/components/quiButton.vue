@@ -1,7 +1,10 @@
 <template>
-	<div class="qui-button" v-on:click="btnClickEvent">
-		<slot name="icon"></slot><!--重点在这里-->
-		<span>{{msg}}</span>
+	<div>
+		<div class="qui-button" v-on:click="btnClickEvent">
+			<slot name="icon"></slot><!--重点在这里-->
+			<span>{{msg}}</span>
+		</div>
+		<el-input v-model="input" placeholder="请输入内容" class="text"></el-input>
 	</div>
 </template>
 <script>
@@ -12,10 +15,16 @@ export default {
             default: '下载'
         }
     },
+    data() {
+        return {
+            input: ''
+        };
+    },
     methods: {
         btnClickEvent() {
 			// 触发父组件中的事件（向父组件传递事件）
-            this.$emit('btnClickEvent');
+            // this.$emit('btnClickEvent');
+            this.$store.commit('addItems', {text: this.input, active: false});
         }
     }
 };
@@ -28,9 +37,17 @@ export default {
 	background: #20a0ff;
 	color: #fff;
 	line-height: 30px;
+	cursor: pointer;
+	float: left;
+	margin-top: 3px;
 }
 .slot {
 	width: 20px;
 	display: block;
+}
+.text {
+	width: 200px;
+	margin-left: 20px;
+	float: left;
 }
 </style>
