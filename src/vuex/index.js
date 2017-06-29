@@ -32,7 +32,12 @@ const mutations = {
         state.count += 5;
     },
     addItems(state, item) {
-        state.items.push(item)
+        if (item.text) {
+            state.items.push(item);
+        }
+    },
+    removeItems(state) {
+        state.items.pop();
     },
     navClickEvent(state, index) {
         state.items.forEach(function (el) {

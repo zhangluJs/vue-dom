@@ -37,5 +37,6 @@ a {
 	display: block;
 	text-decoration: none;
     cursor: pointer;
+    color: #20a0ff;
 }
 </style>

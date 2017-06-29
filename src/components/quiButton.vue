@@ -4,7 +4,6 @@
 			<slot name="icon"></slot><!--重点在这里-->
 			<span>{{msg}}</span>
 		</div>
-		<el-input v-model="input" placeholder="请输入内容" class="text"></el-input>
 	</div>
 </template>
 <script>
@@ -24,7 +23,7 @@ export default {
         btnClickEvent() {
 			// 触发父组件中的事件（向父组件传递事件）
             // this.$emit('btnClickEvent');
-            this.$store.commit('addItems', {text: this.input, active: false});
+            // this.$store.commit('addItems', {text: this.input, active: false});
         }
     }
 };
@@ -40,14 +39,10 @@ export default {
 	cursor: pointer;
 	float: left;
 	margin-top: 3px;
+	clear: both;
 }
 .slot {
 	width: 20px;
 	display: block;
-}
-.text {
-	width: 200px;
-	margin-left: 20px;
-	float: left;
 }
 </style>
