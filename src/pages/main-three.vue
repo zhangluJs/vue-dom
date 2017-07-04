@@ -43,12 +43,12 @@ export default {
     },
     methods: {
         add() {
-            // this.$store.dispatch('actionA', {text: this.input, active: false, description: this.content}).then(res => {
-            //     alert(res);
-            // }, () => {
-            //     alert('提交失败要做的事情');
-            // });
-            this.$store.commit('setItems', {text: this.input, active: false, description: this.content});
+            this.$store.dispatch('actionA').then(res => {
+                this.$store.commit('setItems', res);
+            }, () => {
+                alert('提交失败要做的事情');
+            });
+            // this.$store.commit('setItems', {text: this.input, active: false, description: this.content});
             this.input = '';
             this.content = '';
         },

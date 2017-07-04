@@ -40,6 +40,15 @@ const state = {
     description: ''
 };
 
+const getters = {
+    isActive(state) {
+        return state.items.filter(item => !item.active);
+    },
+    isActiveCount(state, getters) {
+        return getters.isActive.length;
+    }
+};
+
 const mutations = {
     increment(state, n) {
         state.count += n;
@@ -57,14 +66,6 @@ const mutations = {
     }
 };
 
-const getters = {
-    isActive(state) {
-        return state.items.filter(item => !item.active);
-    },
-    isActiveCount(state, getters) {
-        return getters.isActive.length;
-    }
-};
 
 // 接受一个与store实例具有相同方法和属性的context对象
 const actions = {
@@ -79,11 +80,12 @@ const actions = {
     actionA({commit}, n) {
         return new Promise((resolve, reject) => {
             $.ajax({
-                url: '/a.json'
+                url: '/a.json',
+                type: 'get'
             }).then(res => {
-                commit('setItems', res);
+                let data = JSON.parse(res);
                 setTimeout(() => {
-                    resolve(12312);
+                    resolve(data);
                 }, 3000);
             }, res => {
                 reject(res);

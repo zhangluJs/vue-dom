@@ -1,3 +1,5 @@
 {
-    "name": 123
+    "text": "ajax",
+    "description": "我是请求返回的数据",
+    "active": false
 }
