@@ -10,9 +10,10 @@ import App from './App';
 import router from './router';
 import store from './vuex';
 import ElementUI from 'element-ui';
+import $ from 'jquery';
 import 'element-ui/lib/theme-default/index.css';
+window.$ = $;
 Vue.use(ElementUI);
-
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
@@ -21,5 +22,11 @@ new Vue({
     template: '<App/>',
     components: {App}
 });
-store.commit('increment');
+
+store.commit('getdescription');
+
+
+
+console.log(store.getters.isActive);
+console.log(store.getters.isActiveCount);
 console.log(store.state.count);

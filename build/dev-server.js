@@ -1,5 +1,5 @@
 require('./check-versions')()
-
+var fs = require('fs');
 var config = require('../config')
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
@@ -81,6 +81,24 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
+app.use(function (req, res, next) {
+    if (/\.html$/g.test(req.url)) {
+        next();
+    }
+    let mockBasePath = path.resolve(__dirname, '../mock');
+    let mockPath = path.join(mockBasePath, req.method, req.url);
+    if (fs.existsSync(mockPath)) {
+        let stat = fs.statSync(mockPath);
+        // console.log(stat.isFile(), stat.isDirectory(), stat.isSymbolicLink())
+        if (stat.isFile()) {
+            console.log('本地模拟数据:', mockPath);
+            res.json(fs.readFileSync(mockPath, {encoding: 'utf-8'}));
+        }
+    }
+    else {
+        next();
+    }
+});
 var server = app.listen(port)
 
 module.exports = {

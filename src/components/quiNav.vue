@@ -16,20 +16,36 @@ export default {
         'count',
         'items'
     ]),
+    // computed: {
+    //     count() {
+    //         return this.$store.state.count;
+    //     },
+    //     items() {
+    //         return this.$store.state.items;
+    //     }
+    // },
     data() {
         return {};
     },
     methods: {
         navClickEvent(index) {
-            this.$store.commit('navClickEvent', index);
+            this.$store.state.items.forEach(function (el) {
+                el.active = false;
+            });
+            this.$store.state.items[index].active = true;
+            this.$store.commit('getdescription', index);
         }
     }
 };
 </script>
 <style>
+.qui-nav {
+    padding: 0 20px;
+    float: left;
+}
 .activites {
+    color: #ffcd00;
 	border-bottom: 1px solid #ffcd00;
-	color: #ffcd00;
 }
 a {
 	width: 100px;

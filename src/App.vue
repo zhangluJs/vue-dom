@@ -30,4 +30,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+.el-textarea__inner {
+    height: 500px;
+}
 </style>
