@@ -26,7 +26,7 @@ export default {
     computed: {
     //     isActiveCount() {
     //         return this.$store.getters.isActiveCount;
-    //     }
+    //     },
         ...mapGetters([
             'isActiveCount'
         ]),
@@ -43,12 +43,12 @@ export default {
     },
     methods: {
         add() {
-            this.$store.dispatch('actionA').then(res => {
-                this.$store.commit('setItems', res);
-            }, () => {
-                alert('提交失败要做的事情');
-            });
-            // this.$store.commit('setItems', {text: this.input, active: false, description: this.content});
+            // this.$store.dispatch('actionA').then(res => {
+            //     this.$store.commit('setItems', res);
+            // }, () => {
+            //     alert('提交失败要做的事情');
+            // });
+            this.$store.commit('setItems', {text: this.input, active: false, description: this.content});
             this.input = '';
             this.content = '';
         },

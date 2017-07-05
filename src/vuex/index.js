@@ -94,9 +94,71 @@ const actions = {
     }
 };
 
+
 export default new Vuex.Store({
     state,
     mutations,
     getters,
     actions
 });
+
+// const moduleA = {
+//     state: {
+//         count: 1
+//     },
+//     getters: {
+//         maGetter(state, getters, rootState) {
+//             return state.count + rootState.b.count;
+//             // return getters.mbGetter
+//         }
+//         // mbGetter() {
+//         //     return 'Hello Vuex';
+//         // }
+//     },
+//     mutations: {
+//         sayCountA(state) {
+//             console.log(state.count + ' %c   Module A count', 'color:red');
+//         }
+//     },
+//     actions: {
+//         maAction(context) {
+//             context.dispatch('mbAction');
+//         }
+//     }
+// };
+
+// const moduleB = {
+//     state: {
+//         count: 2
+//     },
+//     getters: {
+//         mbGetter() {
+//             return 'Hello Vuex';
+//         }
+//     },
+//     mutations: {
+//         sayCountB(state, num) {
+//             // console.log(state.count + ' %c   Module B count', 'color:red');
+//             console.log(state.count + num + ' %c   Module B count', 'color:red');
+//         }
+//         // sayCountA(state) {
+//         //     console.log(state.count + ' %c   重名的mutations', 'color:red');
+//         // }
+//     },
+//     actions: {
+//         mbAction({commit, rootState, getters}) {
+//             commit('sayCountA');
+//             commit('sayCountB', rootState.a.count);
+//             console.log(getters.maGetter);
+//         }
+//     }
+// };
+// export default new Vuex.Store({
+//     modules: {
+//         a: moduleA,
+//         b: moduleB
+//     },
+//     state: {
+//         count: 123
+//     }
+// });
